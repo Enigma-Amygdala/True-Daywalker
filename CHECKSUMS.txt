@@ -9,6 +9,10 @@ Clean public release archive
 File: TrueDaywalker-0.3.0-Beta.zip
 SHA-256: 941db05da6bb40d0c96c125c8c62978c0297b8d2aaf755a2bdcc6f9ee8585ce1
 
+Retained first-party native source snapshot
+File: source/TrueDaywalker-0.3.0-native-source.zip
+SHA-256: d1c85b30f03accccdf453f7fcfe9639ab67e41bde0e752cef8b8d7a51970ddaf
+
 Supported Dawnwalker executable
 Build: CL-258504
 SHA-256: E565BD97FBA398ECB1CA79CA2AA2CC2E5D43156A0937D7E202E73B3B85ED5086

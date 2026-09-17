@@ -1,67 +1,120 @@
-# Building True Daywalker
+# Building True Daywalker 0.3.0 Beta
 
-This document records the build process used for the native 0.3.0 Beta line.
+This document describes how to inspect and rebuild the retained first-party native source for the public 0.3.0 Beta line.
 
-## Source status
+## Source snapshot
 
-The exact native C++ source tree that produced the public 0.3.0 DLL must be
-placed in:
+The retained first-party source is published at:
+
+[`source/TrueDaywalker-0.3.0-native-source.zip`](source/TrueDaywalker-0.3.0-native-source.zip)
+
+SHA-256:
 
 ```text
-src/native/
+d1c85b30f03accccdf453f7fcfe9639ab67e41bde0e752cef8b8d7a51970ddaf
 ```
 
-Until that tree is present, this repository is **not yet a complete
-source-to-binary reproduction package**. The commands below are preserved from
-the original build/validation record and are intentionally not presented as
-proof of reproducibility until the exact source has been imported.
+This is the retained 0.3.0 source tree from the original build workspace, not a decompiled or reconstructed substitute.
+
+## Source-to-binary correspondence checked before publication
+
+The source snapshot and public DLL agree on the following independently inspectable markers:
+
+- project/resource version: **0.3.0**;
+- DLL product string: `0.3.0 experimental`;
+- supported executable: **CL-258504**;
+- supported `Dawnwalker.exe` SHA-256 gate:
+  `E565BD97FBA398ECB1CA79CA2AA2CC2E5D43156A0937D7E202E73B3B85ED5086`;
+- ten native hooks, including `QuickslotEligibility`, `PlayerAppearance`, `InstantHealing`, `RegenerationHealing`, and `FeedingObserver`;
+- the log string `Build CL-258504 verified. Ten hooks installed; waiting for a player load. No world-clock or save-file edits.` is present in both source and the public DLL;
+- the source export definition contains the same 17 Windows Version API exports exposed by the public `version.dll`;
+- the public DLL imports only Windows `KERNEL32.dll` and `bcrypt.dll` at the PE import-table level.
+
+These checks establish strong correspondence. They are **not** presented as a byte-for-byte reproducible-build proof.
 
 ## Requirements
 
 - Windows 10/11 x64
-- Visual Studio 2022 with the Desktop development with C++ workload
+- Visual Studio 2022 with **Desktop development with C++**
 - MSVC x64 toolchain
-- CMake (the Visual Studio-bundled CMake was used for the original build)
+- CMake (the Visual Studio-bundled CMake is sufficient)
+- MinHook
 
-No separate runtime framework such as UE4SS is required by the native DLL.
+## Third-party dependency: MinHook
 
-## Configure
+The retained first-party source refers to MinHook through:
+
+```cmake
+add_subdirectory(../tools/minhook minhook)
+target_include_directories(TrueDaywalker PRIVATE ../tools/minhook/include)
+```
+
+The uploaded first-party snapshot did **not** include the original local MinHook checkout, so this repository does not falsely claim an exact retained revision for that third-party dependency.
+
+For reviewer rebuilds, use upstream MinHook **v1.3.4**:
+
+```powershell
+git clone --branch v1.3.4 --depth 1 https://github.com/TsudaKageyu/minhook.git .\work\tools\minhook
+```
+
+MinHook v1.3.4 is used here as a pinned reviewer dependency. The first-party True Daywalker source itself is the retained historical 0.3.0 tree.
+
+## Prepare the source
 
 From the repository root:
 
 ```powershell
-cmake -S .\src\native -B .\build -G "Visual Studio 17 2022" -A x64
+New-Item -ItemType Directory -Force .\work | Out-Null
+Expand-Archive .\source\TrueDaywalker-0.3.0-native-source.zip .\work -Force
+git clone --branch v1.3.4 --depth 1 https://github.com/TsudaKageyu/minhook.git .\work\tools\minhook
 ```
 
-The original packaged source was also validated by configuring it into a fresh
-build directory rather than reusing the development build tree.
+After extraction the relevant layout is:
 
-## Build
+```text
+work/
+├─ src/
+│  ├─ CMakeLists.txt
+│  ├─ true_daywalker.cpp
+│  ├─ extensions.inl
+│  ├─ policy.hpp
+│  ├─ policy_test.cpp
+│  ├─ proxy.cpp
+│  ├─ proxy.asm
+│  ├─ proxy.def
+│  ├─ loader_test.cpp
+│  ├─ version.rc
+│  └─ TrueDaywalker.ini
+└─ tools/
+   └─ minhook/
+```
+
+## Configure and build
 
 ```powershell
+cmake -S .\work\src -B .\build -G "Visual Studio 17 2022" -A x64
 cmake --build .\build --config Release
 ```
 
-The release target is expected to produce the native `version.dll` proxy and
-the validation executables defined by the source tree.
+The main output is expected to be:
+
+```text
+build\Release\version.dll
+```
+
+The project also defines `policy_test` and `loader_test` executables.
 
 ## Validation
 
-The 0.3.0 candidate build record reported:
-
-- 301 policy checks passing;
-- all 17 expected Windows Version API proxy exports present;
-- 19 native executable-signature checks passing;
-- unsupported-executable guard behavior exercised.
-
-Run the policy test produced by the build:
+Run the policy test:
 
 ```powershell
 .\build\Release\policy_test.exe
 ```
 
-The original loader test compared the proxy's Version API behavior against the
-real Windows system library and exercised the unsupported-process guard:
+The retained 0.3.0 development record reported **301 policy checks passing**, all **17 proxy exports** validated, and all **19 native signature checks** passing before gameplay testing.
+
+The loader test can compare the proxy's Version API behavior against Windows and exercise the unsupported-process guard:
 
 ```powershell
 .\build\Release\loader_test.exe `
@@ -69,35 +122,32 @@ real Windows system library and exercised the unsupported-process guard:
   "C:\Path\To\The Blood of Dawnwalker\Dawnwalker\Binaries\Win64\Dawnwalker.exe"
 ```
 
-## Supported executable
+## Official public hashes
 
-The 0.3.0 Beta installer accepts only the executable with this SHA-256:
-
-```text
-E565BD97FBA398ECB1CA79CA2AA2CC2E5D43156A0937D7E202E73B3B85ED5086
-```
-
-This corresponds to the tested **CL-258504** build in the original release
-environment.
-
-The installer intentionally fails closed if this hash does not match.
-
-## Expected public DLL hash
-
-The exact native DLL distributed in the 0.3.0 Beta archive has:
+Public 0.3.0 Beta gameplay DLL:
 
 ```text
 c521990e5b8e69bab2178ddc5dbcd077211e908e87557c35a370d2b42c316237
 ```
 
-After the exact source tree is imported, a clean Release build should be
-compared against the published binary. Compiler/linker metadata may need to be
-normalized before byte-for-byte reproducibility can be claimed; until that is
-demonstrated, compare functional behavior, exports, source revision, and
-cryptographic hashes of the official release artifact separately.
+Clean public release archive:
 
-## Important integrity rule
+```text
+941db05da6bb40d0c96c125c8c62978c0297b8d2aaf755a2bdcc6f9ee8585ce1
+```
 
-Do not replace the missing original source with reconstructed/decompiled code
-and describe it as the source used for 0.3.0. Nexus review and user auditing are
-better served by an honest provenance boundary.
+Supported `Dawnwalker.exe`:
+
+```text
+E565BD97FBA398ECB1CA79CA2AA2CC2E5D43156A0937D7E202E73B3B85ED5086
+```
+
+See [`CHECKSUMS.txt`](CHECKSUMS.txt).
+
+## Packaging difference
+
+The retained development source snapshot contains `Diagnostics=1` in its accompanying INI. The clean public Nexus package intentionally ships `Diagnostics=0` as the normal-user default. This changes configuration only; the published gameplay DLL was not rebuilt for that packaging change.
+
+## Reproducibility boundary
+
+The exact first-party 0.3.0 source is now public. Because the original local third-party MinHook checkout was not included in the retained source snapshot, this repository does not claim that a reviewer build using the pinned upstream dependency will be byte-identical to the published DLL. Reviewers can inspect the complete first-party implementation, rebuild it, exercise the included tests, and compare behavior, exports, version metadata, hook table, and release hashes.

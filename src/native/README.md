@@ -1,21 +1,15 @@
-# Native source status
+# Native source
 
-This directory is reserved for the **exact native C++ source tree used to build
-True Daywalker 0.3.0 Beta**.
+The exact retained first-party 0.3.0 source snapshot is published at:
 
-That source tree has not yet been imported into this GitHub repository.
+[`source/TrueDaywalker-0.3.0-native-source.zip`](../../source/TrueDaywalker-0.3.0-native-source.zip)
 
-The original build record places the packaged source at:
+It is kept as an immutable source snapshot rather than silently rewriting the historical build tree for repository aesthetics.
+
+Archive SHA-256:
 
 ```text
-outputs\TrueDaywalker\source\native
+d1c85b30f03accccdf453f7fcfe9639ab67e41bde0e752cef8b8d7a51970ddaf
 ```
 
-inside the original development workspace.
-
-For provenance integrity, this repository will not substitute decompiled,
-reconstructed, or newly rewritten code and claim that it produced the
-published 0.3.0 DLL.
-
-Once the original source tree is copied here, this notice should be replaced by
-the actual files and `BUILDING.md` should be validated against a fresh clone.
+For build prerequisites, MinHook dependency details, build commands, validation, and the relationship between this source snapshot and the public DLL, see [`BUILDING.md`](../../BUILDING.md).

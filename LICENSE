@@ -1,0 +1,71 @@
+True Daywalker Source-Available License
+Copyright (c) 2026 Enigma-Amygdala. All rights reserved.
+
+1. PURPOSE
+
+The source code, scripts, documentation, and accompanying materials in this
+repository (the "Software") are made publicly available for inspection,
+security review, education, verification of official True Daywalker releases,
+and contribution back to the official project.
+
+This is a source-available license. It is not an OSI-approved open-source
+license.
+
+2. PERMITTED USES
+
+Subject to the restrictions below, you may:
+
+a. View, inspect, study, and audit the Software.
+b. Clone or fork the repository where permitted by the hosting platform.
+c. Compile the Software for your own private, personal, non-commercial use.
+d. Modify the Software privately for your own personal, non-commercial use.
+e. Submit patches, pull requests, issue reports, or proposed changes to the
+official True Daywalker project.
+f. Quote limited portions of the source when reasonably necessary for
+discussion, review, security analysis, or attribution, subject to applicable
+law.
+
+3. RESTRICTIONS
+
+Except with prior written permission from the copyright holder, you may not:
+
+a. Re-upload, mirror, redistribute, or republish the Software or compiled
+binaries as a standalone download, mod, package, collection component, or
+substitute release, except for repository-hosting functionality inherently
+provided by the hosting platform.
+b. Publish, distribute, or publicly release modified or derivative versions
+of True Daywalker.
+c. Incorporate substantial portions of the Software into another publicly
+distributed mod, program, product, or service.
+d. Sell, sublicense, rent, paywall, monetize, or otherwise commercially
+exploit the Software or a derivative work based substantially upon it.
+e. Use the Software or its assets in a manner that falsely implies
+endorsement, official status, or authorship by the True Daywalker project.
+f. Remove, conceal, or misrepresent copyright, authorship, license, or
+attribution notices.
+
+4. OFFICIAL RELEASES
+
+Official compiled releases are distributed through channels designated by the
+copyright holder. The availability of source code in this repository does not
+grant permission to redistribute official binaries or create unofficial public
+builds.
+
+5. THIRD-PARTY RIGHTS
+
+This license applies only to rights held by the copyright holder. It does not
+grant rights in The Blood of Dawnwalker, its game assets, trademarks, or other
+third-party materials.
+
+6. NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, TITLE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING
+FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF THE SOFTWARE.
+
+7. RIGHTS RESERVED
+
+All rights not expressly granted by this license are reserved by the copyright
+holder.

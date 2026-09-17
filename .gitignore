@@ -1,0 +1,39 @@
+# CMake / Visual Studio
+/build/
+/out/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+.vs/
+
+# Compiled outputs
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.exe
+*.dll
+
+# Runtime/development artifacts
+*.log
+Backups/
+backup/
+logs/
+work/
+outputs/
+
+# Dawnwalker personal data
+*.sav
+*.meta
+SaveGames/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp

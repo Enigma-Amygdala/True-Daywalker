@@ -1,0 +1,14 @@
+True Daywalker 0.3.0 Beta
+==============================
+
+Official gameplay DLL
+Path: Dawnwalker/Binaries/Win64/version.dll
+SHA-256: c521990e5b8e69bab2178ddc5dbcd077211e908e87557c35a370d2b42c316237
+
+Clean public release archive
+File: TrueDaywalker-0.3.0-Beta.zip
+SHA-256: 941db05da6bb40d0c96c125c8c62978c0297b8d2aaf755a2bdcc6f9ee8585ce1
+
+Supported Dawnwalker executable
+Build: CL-258504
+SHA-256: E565BD97FBA398ECB1CA79CA2AA2CC2E5D43156A0937D7E202E73B3B85ED5086

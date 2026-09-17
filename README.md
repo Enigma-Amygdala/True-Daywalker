@@ -69,29 +69,23 @@ Native runtime hooks and memory protection changes can trigger heuristic antivir
 
 See [`SECURITY.md`](SECURITY.md) and [`NEXUS_REVIEW.md`](NEXUS_REVIEW.md).
 
-## Build verification
+## Source and build verification
 
-The original 0.3.0 build record used:
+The exact retained first-party **0.3.0** native source snapshot is now public:
 
-- Windows x64
-- Visual Studio 2022 / MSVC
-- CMake
-- generator: `Visual Studio 17 2022`
-- architecture: `x64`
+[`source/TrueDaywalker-0.3.0-native-source.zip`](source/TrueDaywalker-0.3.0-native-source.zip)
 
-Reproducible build commands and verification steps are documented in [`BUILDING.md`](BUILDING.md).
-
-### Source publication status
-
-**Important:** the exact native C++ source tree that produced the public 0.3.0 DLL has not yet been copied into this GitHub repository. The release scripts/configuration are published here, but the native source must be imported from the original build workspace before this repository can be used as a complete source-to-binary verification record.
-
-No reconstructed or decompiled substitute will be presented as the original source.
-
-Expected destination:
+Source snapshot SHA-256:
 
 ```text
-src/native/
+d1c85b30f03accccdf453f7fcfe9639ab67e41bde0e752cef8b8d7a51970ddaf
 ```
+
+It is the retained source tree from the original build workspace, not a decompiled/reconstructed replacement. Before publication it was audited for personal paths, credentials, network/downloader code, and unrelated development material.
+
+The source and public DLL agree on version metadata, the CL-258504 executable gate, the ten-hook feature set, the 17 Version API exports, and characteristic runtime diagnostic strings. See [`BUILDING.md`](BUILDING.md) for the detailed correspondence and reviewer build procedure.
+
+The original first-party snapshot did not include its local third-party MinHook checkout. `BUILDING.md` therefore pins upstream MinHook v1.3.4 for reviewer rebuilds and explicitly avoids claiming byte-for-byte reproducibility across that unpreserved dependency boundary.
 
 ## Integrity
 
@@ -114,13 +108,14 @@ See [`CHECKSUMS.txt`](CHECKSUMS.txt).
 ## Repository layout
 
 ```text
-src/native/        exact native source for the DLL (pending import)
+source/            immutable retained 0.3.0 first-party source snapshot
+src/native/        source-snapshot pointer and audit note
 scripts/           public installer/configuration scripts
 config/            default public configuration
-BUILDING.md        reproducible build instructions
+BUILDING.md        reviewer build and validation instructions
 NEXUS_REVIEW.md    notes for Nexus/manual security review
 SECURITY.md        security behavior and reporting
-CHECKSUMS.txt       release integrity values
+CHECKSUMS.txt       release and source integrity values
 CHANGELOG.md        public release history
 LICENSE             source-available license
 ```

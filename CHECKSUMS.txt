@@ -1,18 +1,40 @@
-True Daywalker 0.3.0 Beta
-==============================
+True Daywalker — Current and Historical Integrity
+=================================================
+
+CURRENT PUBLIC RELEASE — 0.4.4 Beta
+-----------------------------------
 
 Official gameplay DLL
 Path: Dawnwalker/Binaries/Win64/version.dll
-SHA-256: c521990e5b8e69bab2178ddc5dbcd077211e908e87557c35a370d2b42c316237
+SHA-256: b0271a3e9d69a8e7feaa6bb148e4545cf9fc0b1abed6eff17921fb323e3b9bf8
 
 Clean public release archive
-File: TrueDaywalker-0.3.0-Beta.zip
-SHA-256: 941db05da6bb40d0c96c125c8c62978c0297b8d2aaf755a2bdcc6f9ee8585ce1
+File: TrueDaywalker-0.4.4-Beta.zip
+SHA-256: 15e171884234ae9cd9d4f54dbd17bc5da7925c0230fb57b98f93c3cd68bf791e
 
-Retained first-party native source snapshot
+Release URL:
+https://github.com/Enigma-Amygdala/True-Daywalker-Release/releases/tag/v0.4.4-beta
+
+Compatibility note:
+0.4.4 validates native code/data layout and runtime-entry signatures rather than requiring one exact whole-file Dawnwalker.exe hash. Unknown native-code changes fail closed.
+
+RETAINED PUBLIC SOURCE SNAPSHOT — 0.3.0
+---------------------------------------
+
 File: source/TrueDaywalker-0.3.0-native-source.zip
 SHA-256: d1c85b30f03accccdf453f7fcfe9639ab67e41bde0e752cef8b8d7a51970ddaf
 
-Supported Dawnwalker executable
+This retained source snapshot corresponds to 0.3.0 and should not be represented as the exact source snapshot for the 0.4.4 binary.
+
+HISTORICAL PUBLIC RELEASE — 0.3.0 Beta
+--------------------------------------
+
+Gameplay DLL SHA-256:
+c521990e5b8e69bab2178ddc5dbcd077211e908e87557c35a370d2b42c316237
+
+Release ZIP SHA-256:
+941db05da6bb40d0c96c125c8c62978c0297b8d2aaf755a2bdcc6f9ee8585ce1
+
+0.3.0 exact supported-executable reference:
 Build: CL-258504
-SHA-256: E565BD97FBA398ECB1CA79CA2AA2CC2E5D43156A0937D7E202E73B3B85ED5086
+Dawnwalker.exe SHA-256: E565BD97FBA398ECB1CA79CA2AA2CC2E5D43156A0937D7E202E73B3B85ED5086

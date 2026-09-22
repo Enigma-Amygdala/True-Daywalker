@@ -26,6 +26,19 @@ jobs:
             throw "Source bundle SHA-256 mismatch: $hash"
           }
           Expand-Archive -LiteralPath $zip -DestinationPath '.ci\td046\src' -Force
+          $cmakeDir = '.ci\td046\src\tools\minhook\cmake'
+          New-Item -ItemType Directory -Path $cmakeDir -Force | Out-Null
+          @'
+          set(MINHOOK_MAJOR_VERSION "@MINHOOK_MAJOR_VERSION@")
+          set(MINHOOK_MINOR_VERSION "@MINHOOK_MINOR_VERSION@")
+          set(MINHOOK_PATCH_VERSION "@MINHOOK_PATCH_VERSION@")
+          set(MINHOOK_VERSION "@MINHOOK_VERSION@")
+          @PACKAGE_INIT@
+          set(MINHOOK_FOUND ON)
+          set_and_check(MINHOOK_INCLUDE_DIRS "${PACKAGE_PREFIX_DIR}/include/")
+          set_and_check(MINHOOK_LIBRARY_DIRS "${PACKAGE_PREFIX_DIR}/lib")
+          include("${PACKAGE_PREFIX_DIR}/share/minhook/minhook-targets.cmake")
+          '@ | Set-Content (Join-Path $cmakeDir 'minhook-config.cmake.in') -Encoding ASCII
 
       - name: Build and run policy tests
         shell: powershell

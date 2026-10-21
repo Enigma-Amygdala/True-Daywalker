@@ -15,3 +15,9 @@ Before publication the retained source was scanned for local/private development
 The source identifies itself as 0.3.0 and contains the same ten-hook feature set represented by the public DLL, including quick-slot eligibility, appearance, instant-healing, regeneration-healing, and feeding hooks.
 
 The source CMake expects the third-party **MinHook** library at `../tools/minhook`. The retained first-party snapshot did not include that external dependency. See [`../BUILDING.md`](../BUILDING.md) for the reviewer build procedure and provenance boundary.
+
+## Open-source status
+
+The original-author source in this retained historical snapshot is offered under the repository [MIT License](../LICENSE), to the extent the author holds the applicable copyrights. This does not relicense third-party content or the game. The original ZIP is preserved for provenance; community changes should be submitted as reviewable source files rather than silently replacing the archive.
+
+**This 0.3.0 snapshot is not claimed to rebuild later 0.4.x release binaries.** See [MAINTENANCE.md](../MAINTENANCE.md) and [THIRD_PARTY.md](../THIRD_PARTY.md).

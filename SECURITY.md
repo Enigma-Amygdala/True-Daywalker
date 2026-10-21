@@ -40,6 +40,10 @@ If a scanner flags a True Daywalker release:
 4. inspect/build the published source when available;
 5. report any mismatch or unexpected behavior.
 
+## Maintenance and security support status
+
+The original author has paused active development. Security reports are welcome, but fixes, responses, and releases are **not guaranteed**. Do not assume this repository or its historical DLL is compatible with future game updates. Unknown executable builds should fail closed; do not disable checks merely to force compatibility.
+
 ## Reporting a security concern
 
 Please open a GitHub issue for non-sensitive concerns.

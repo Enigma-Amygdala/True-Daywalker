@@ -8,14 +8,24 @@ Official Nexus Mods page: https://www.nexusmods.com/thebloodofdawnwalker/mods/55
 
 Official GitHub release mirror: https://github.com/Enigma-Amygdala/True-Daywalker-Release
 
-## Current public release
+## Open source and maintenance status
+
+**The first-party True Daywalker code and documentation in this repository are released under the [MIT License](LICENSE).** You can inspect, fork, modify, redistribute, and publish your own versions, including commercially, provided you preserve the copyright and license notices.
+
+**Original-author development is paused.** No new features, compatibility updates, support responses, or binary releases are promised. Community forks and contributions are welcome on a best-effort basis; the existence of this repository does not imply active support. See [MAINTENANCE.md](MAINTENANCE.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
+
+**Source/binary boundary:** The reproducible *source starting point* currently available is the retained **0.3.0** first-party native source archive. Later **0.4.x** binaries and release ZIPs (including 0.4.5 archives present in this repository) are **not** represented as having matching published source. See [BUILDING.md](BUILDING.md) before claiming a source-backed rebuild. This is a public open-source *code repository*, not a claim that every historic binary is rebuildable from its contents.
+
+This license covers only material whose copyright is owned or controlled by the True Daywalker author. *The Blood of Dawnwalker*, its assets, names, and trademarks, and third-party dependencies belong to their respective owners and are **not relicensed** by this repository. See [THIRD_PARTY.md](THIRD_PARTY.md).
+
+## Documented 0.4.4 Beta release
 
 **0.4.4 Beta**  
 Tested game build: **CL-258504**
 
 [Download True Daywalker 0.4.4 Beta](https://github.com/Enigma-Amygdala/True-Daywalker-Release/releases/download/v0.4.4-beta/TrueDaywalker-0.4.4-Beta.zip)
 
-**0.3.0 users should update.** 0.4.4 fixes a progression-blocking hybrid-form issue affecting Astral Communion at haunted sites and Compel interactions with eligible corpses.
+The 0.4.4 release fixes a progression-blocking hybrid-form issue affecting Astral Communion at haunted sites and Compel interactions with eligible corpses.
 
 True Daywalker 0.4.4 currently provides:
 
@@ -116,8 +126,8 @@ LICENSE             source-available license
 
 ## License
 
-The source is published for inspection, security review, personal compilation, and project contributions. **This is source-available software, not an open-source license.**
+**MIT** for first-party True Daywalker software and documentation, subject to rights actually held by the copyright owner. Copyright (c) 2026 Enigma-Amygdala. You may fork, adapt, redistribute, and publish community builds (including commercial uses) if you preserve the MIT license and copyright notice.
 
-Re-uploading, repackaging, publishing derivatives, and commercial redistribution are not granted without prior written permission.
+The MIT license does **not** convey rights in *The Blood of Dawnwalker* or third-party assets and dependencies. The latest packaged binaries are not claimed to be reproducible from the retained 0.3.0 source snapshot.
 
-See [`LICENSE`](LICENSE) for the exact terms.
+See [LICENSE](LICENSE), [THIRD_PARTY.md](THIRD_PARTY.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [MAINTENANCE.md](MAINTENANCE.md).
